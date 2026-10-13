@@ -1,0 +1,52 @@
+{
+    "Stage_A": {
+        "Accuracy": 0.9963111111111111,
+        "Precision": 0.9159836065573771,
+        "Recall": 0.9988826815642458,
+        "F1": 0.9556386958845537,
+        "Macro-F1": 0.9768571183519781,
+        "Specificity": 0.9962045822726221,
+        "FPR": 0.003795417727377922,
+        "TP": 894,
+        "TN": 21523,
+        "FP": 82,
+        "FN": 1
+    },
+    "Stage_B": {
+        "Accuracy": 0.9323111111111111,
+        "Precision": 0.37014061207609594,
+        "Recall": 1.0,
+        "F1": 0.540295804406882,
+        "Macro-F1": 0.7518808165412441,
+        "Specificity": 0.9295070585512613,
+        "FPR": 0.07049294144873872,
+        "TP": 895,
+        "TN": 20082,
+        "FP": 1523,
+        "FN": 0
+    },
+    "Stage_C": {
+        "SuspiciousEvents": 8,
+        "CandidateIncidents": 1,
+        "ChainCompleteness": 1.0,
+        "NoiseIsolation": 1.0
+    },
+    "Stage_D": {
+        "Edges": 20,
+        "Components": 1,
+        "EdgePrecision": 1.0
+    },
+    "Stage_E": {
+        "EvidenceCoverage": 0.0,
+        "UnsupportedEntities": 0,
+        "MitreConsistency": 0.0,
+        "SchemaValid": 0.0,
+        "FallbackTriggered": true
+    },
+    "Overlap": {
+        "xgb_only": 443,
+        "if_only": 1442,
+        "both": 533,
+        "neither": 20082
+    }
+}

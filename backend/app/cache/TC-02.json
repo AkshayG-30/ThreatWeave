@@ -1,0 +1,168 @@
+{
+    "incident_id": "INC_TC02",
+    "scenario_id": "TC-02",
+    "execution_mode": "LIVE_INFERENCE",
+    "source_dataset": "NF-UNSW-NB15-v2",
+    "event_count": 5,
+    "events": [
+        {
+            "event_id": "TC02_EV_01_EXPLOIT",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.11",
+            "source_port": 43398,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9984,
+            "anomaly_score": 0.004,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC02_EV_02_EXPLOIT",
+            "source_ip": "175.45.176.3",
+            "destination_ip": "149.171.126.12",
+            "source_port": 63801,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9993,
+            "anomaly_score": 0.003,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC02_EV_03_EXPLOIT",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.16",
+            "source_port": 6715,
+            "destination_port": 143,
+            "protocol": "TCP",
+            "supervised_score": 0.9995,
+            "anomaly_score": -0.0129,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC02_EV_04_EXPLOIT",
+            "source_ip": "175.45.176.3",
+            "destination_ip": "149.171.126.17",
+            "source_port": 8206,
+            "destination_port": 8080,
+            "protocol": "TCP",
+            "supervised_score": 0.9989,
+            "anomaly_score": 0.0341,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC02_EV_05_EXPLOIT",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.11",
+            "source_port": 25558,
+            "destination_port": 25,
+            "protocol": "TCP",
+            "supervised_score": 0.9987,
+            "anomaly_score": 0.1548,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [
+        {
+            "source": "TC02_EV_01_EXPLOIT",
+            "target": "TC02_EV_02_EXPLOIT",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_ATTACK_FAMILY",
+                    "reason": "Both events classified as Exploits signature"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC02_EV_02_EXPLOIT",
+            "target": "TC02_EV_03_EXPLOIT",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_ATTACK_FAMILY",
+                    "reason": "Both events classified as Exploits signature"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC02_EV_03_EXPLOIT",
+            "target": "TC02_EV_04_EXPLOIT",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_ATTACK_FAMILY",
+                    "reason": "Both events classified as Exploits signature"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC02_EV_04_EXPLOIT",
+            "target": "TC02_EV_05_EXPLOIT",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_ATTACK_FAMILY",
+                    "reason": "Both events classified as Exploits signature"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        }
+    ],
+    "correlation_score": 14.5,
+    "detection_summary": {
+        "supervised_avg": 0.999,
+        "anomaly_avg": 0.0366,
+        "attack_family": "Exploits",
+        "model_recall_in_split": "100.0% (297/297)"
+    },
+    "mitre_mappings": [
+        {
+            "technique_id": "T1210",
+            "technique_name": "Exploitation of Remote Services",
+            "tactic": "Lateral Movement",
+            "evidence": "Verified high-confidence supervised XGBoost detection on remote exploit signatures.",
+            "confidence": "HIGH",
+            "source_event_ids": [
+                "TC02_EV_01_EXPLOIT",
+                "TC02_EV_02_EXPLOIT",
+                "TC02_EV_03_EXPLOIT",
+                "TC02_EV_04_EXPLOIT",
+                "TC02_EV_05_EXPLOIT"
+            ]
+        }
+    ],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC02_01",
+            "type": "SUPERVISED_DETECTION",
+            "description": "High-confidence supervised XGBoost detection matching known Exploit flow signatures.",
+            "source_event_ids": [
+                "TC02_EV_01_EXPLOIT",
+                "TC02_EV_02_EXPLOIT",
+                "TC02_EV_03_EXPLOIT",
+                "TC02_EV_04_EXPLOIT",
+                "TC02_EV_05_EXPLOIT"
+            ],
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Supervised model detection tested on known signature features.",
+        "Payload content not inspected; classification based on NetFlow v2 statistics."
+    ]
+}

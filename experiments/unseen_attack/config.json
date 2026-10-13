@@ -1,0 +1,17 @@
+{
+    "dataset": "NF-UNSW-NB15-v2",
+    "dataset_size": 150000,
+    "selected_held_out_families": [
+        "Fuzzers",
+        "Reconnaissance"
+    ],
+    "model_config": {
+        "n_estimators": 100,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "tree_method": "hist",
+        "eval_metric": "logloss",
+        "random_state": 42
+    },
+    "feature_count": 41
+}

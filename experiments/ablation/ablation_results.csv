@@ -1,0 +1,6 @@
+Stage,Accuracy,Precision,Recall,F1,Specificity,FPR,TP,TN,FP,FN,SuspiciousEvents,CandidateIncidents,Edges,Components,ChainCompleteness,EdgePrecision,NoiseIsolation,EvidenceCoverage,UnsupportedEntities,MitreConsistency,SchemaValid
+Stage A — Baseline,0.9963,0.9160,0.9989,0.9556,0.9962,0.0038,894,21523,82,1,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+Stage B — + Anomaly,0.9323,0.3701,1.0000,0.5403,0.9295,0.0705,895,20082,1523,0,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+Stage C — + Correlation,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,8,1,N/A,N/A,1.0000,N/A,1.0000,N/A,N/A,N/A,N/A
+Stage D — + Graph,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,20,1,N/A,1.0000,N/A,N/A,N/A,N/A,N/A
+Stage E — + Explanation,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,0.0000,0,0.0000,0.0000

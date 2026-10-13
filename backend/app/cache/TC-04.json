@@ -1,0 +1,104 @@
+{
+    "incident_id": "INC_TC04",
+    "scenario_id": "TC-04",
+    "execution_mode": "LIVE_INFERENCE",
+    "source_dataset": "NF-UNSW-NB15-v2",
+    "event_count": 5,
+    "events": [
+        {
+            "event_id": "TC04_EV_01_ANOMALY",
+            "source_ip": "59.166.0.6",
+            "destination_ip": "149.171.126.1",
+            "source_port": 33069,
+            "destination_port": 22,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.081,
+            "detection_source": "ANOMALY",
+            "timestamp": 1704294951.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC04_EV_02_ANOMALY",
+            "source_ip": "59.166.0.9",
+            "destination_ip": "149.171.126.9",
+            "source_port": 54962,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.1684,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC04_EV_03_ANOMALY",
+            "source_ip": "59.166.0.4",
+            "destination_ip": "149.171.126.3",
+            "source_port": 52856,
+            "destination_port": 6881,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.1893,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC04_EV_04_ANOMALY",
+            "source_ip": "59.166.0.0",
+            "destination_ip": "149.171.126.7",
+            "source_port": 16165,
+            "destination_port": 6881,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.1208,
+            "detection_source": "ANOMALY",
+            "timestamp": 1704294952.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC04_EV_05_ANOMALY",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.18",
+            "source_port": 1043,
+            "destination_port": 53,
+            "protocol": "UDP",
+            "supervised_score": 0.9999,
+            "anomaly_score": 0.0344,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [],
+    "correlation_score": 8.0,
+    "detection_summary": {
+        "supervised_avg": 0.2,
+        "anomaly_avg": 0.1188,
+        "if_threshold": 0.009427,
+        "anomaly_detection_model": "Isolation Forest (200 trees)"
+    },
+    "mitre_mappings": [],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC04_01",
+            "type": "BEHAVIORAL_OUTLIER",
+            "description": "Isolation Forest flagged statistically aberrant feature distributions exceeding threshold 0.0094.",
+            "source_event_ids": [
+                "TC04_EV_01_ANOMALY",
+                "TC04_EV_02_ANOMALY",
+                "TC04_EV_03_ANOMALY",
+                "TC04_EV_04_ANOMALY",
+                "TC04_EV_05_ANOMALY"
+            ],
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "MEDIUM",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Unsupervised anomaly detection flags outliers without semantic attack labels.",
+        "Requires human analyst triage or MITRE rule mapping to determine intent."
+    ]
+}

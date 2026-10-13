@@ -1,0 +1,128 @@
+{
+    "Random_Forest": {
+        "Accuracy": 0.9967555555555555,
+        "Precision": 0.949671772428884,
+        "Recall": 0.9698324022346368,
+        "F1": 0.9596462133775566,
+        "Macro-F1": 0.9789780232223153,
+        "FPR": 0.002129136773894932,
+        "TN": 21559,
+        "FP": 46,
+        "FN": 27,
+        "TP": 868,
+        "Benign_Recall": 0.9978708632261051,
+        "Attack_Recall": 0.9698324022346368
+    },
+    "XGBoost": {
+        "Accuracy": 0.9963111111111111,
+        "Precision": 0.9159836065573771,
+        "Recall": 0.9988826815642458,
+        "F1": 0.9556386958845537,
+        "Macro-F1": 0.9768571183519781,
+        "FPR": 0.003795417727377922,
+        "TN": 21523,
+        "FP": 82,
+        "FN": 1,
+        "TP": 894,
+        "Benign_Recall": 0.9962045822726221,
+        "Attack_Recall": 0.9988826815642458
+    },
+    "Attack_Analysis_RF": {
+        "Exploits": {
+            "total": 297,
+            "detected": 292,
+            "recall": 0.9831649831649831
+        },
+        "Reconnaissance": {
+            "total": 121,
+            "detected": 121,
+            "recall": 1.0
+        },
+        "Generic": {
+            "total": 156,
+            "detected": 156,
+            "recall": 1.0
+        },
+        "DoS": {
+            "total": 54,
+            "detected": 52,
+            "recall": 0.9629629629629629
+        },
+        "Fuzzers": {
+            "total": 210,
+            "detected": 194,
+            "recall": 0.9238095238095239
+        },
+        "Backdoor": {
+            "total": 20,
+            "detected": 20,
+            "recall": 1.0
+        },
+        "Analysis": {
+            "total": 22,
+            "detected": 18,
+            "recall": 0.8181818181818182
+        },
+        "Shellcode": {
+            "total": 14,
+            "detected": 14,
+            "recall": 1.0
+        },
+        "Worms": {
+            "total": 1,
+            "detected": 1,
+            "recall": 1.0
+        }
+    },
+    "Attack_Analysis_XGB": {
+        "Exploits": {
+            "total": 297,
+            "detected": 297,
+            "recall": 1.0
+        },
+        "Reconnaissance": {
+            "total": 121,
+            "detected": 121,
+            "recall": 1.0
+        },
+        "Generic": {
+            "total": 156,
+            "detected": 156,
+            "recall": 1.0
+        },
+        "DoS": {
+            "total": 54,
+            "detected": 54,
+            "recall": 1.0
+        },
+        "Fuzzers": {
+            "total": 210,
+            "detected": 210,
+            "recall": 1.0
+        },
+        "Backdoor": {
+            "total": 20,
+            "detected": 20,
+            "recall": 1.0
+        },
+        "Analysis": {
+            "total": 22,
+            "detected": 21,
+            "recall": 0.9545454545454546
+        },
+        "Shellcode": {
+            "total": 14,
+            "detected": 14,
+            "recall": 1.0
+        },
+        "Worms": {
+            "total": 1,
+            "detected": 1,
+            "recall": 1.0
+        }
+    },
+    "Training_Time_s": {
+        "Random_Forest": 2.8866140842437744,
+        "XGBoost": 1.945047378540039
+    }
+}

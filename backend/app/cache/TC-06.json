@@ -1,0 +1,195 @@
+{
+    "incident_id": "INC_TC06",
+    "scenario_id": "TC-06",
+    "execution_mode": "LIVE_INFERENCE",
+    "source_dataset": "NF-UNSW-NB15-v2",
+    "event_count": 6,
+    "events": [
+        {
+            "event_id": "TC06_EV_01_DUAL",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.18",
+            "source_port": 1043,
+            "destination_port": 53,
+            "protocol": "UDP",
+            "supervised_score": 0.9999,
+            "anomaly_score": 0.0344,
+            "detection_source": "BOTH",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC06_EV_02_DUAL",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.14",
+            "source_port": 53187,
+            "destination_port": 25,
+            "protocol": "TCP",
+            "supervised_score": 0.9959,
+            "anomaly_score": 0.0113,
+            "detection_source": "BOTH",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC06_EV_03_DUAL",
+            "source_ip": "175.45.176.3",
+            "destination_ip": "149.171.126.18",
+            "source_port": 47439,
+            "destination_port": 53,
+            "protocol": "UDP",
+            "supervised_score": 0.9999,
+            "anomaly_score": 0.0369,
+            "detection_source": "BOTH",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC06_EV_04_DUAL",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.15",
+            "source_port": 52944,
+            "destination_port": 179,
+            "protocol": "TCP",
+            "supervised_score": 0.5107,
+            "anomaly_score": 0.0555,
+            "detection_source": "BOTH",
+            "timestamp": 1704294952.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC06_EV_05_DUAL",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.17",
+            "source_port": 0,
+            "destination_port": 0,
+            "protocol": "IP",
+            "supervised_score": 0.9999,
+            "anomaly_score": 0.017,
+            "detection_source": "BOTH",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC06_EV_06_DUAL",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.18",
+            "source_port": 22009,
+            "destination_port": 5060,
+            "protocol": "UDP",
+            "supervised_score": 0.9979,
+            "anomaly_score": 0.0416,
+            "detection_source": "BOTH",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [
+        {
+            "source": "TC06_EV_01_DUAL",
+            "target": "TC06_EV_02_DUAL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "DETECTOR_CONSENSUS",
+                    "reason": "Both Supervised and Anomaly detectors triggered positive"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "TC06_EV_02_DUAL",
+            "target": "TC06_EV_03_DUAL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "DETECTOR_CONSENSUS",
+                    "reason": "Both Supervised and Anomaly detectors triggered positive"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "TC06_EV_03_DUAL",
+            "target": "TC06_EV_04_DUAL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "DETECTOR_CONSENSUS",
+                    "reason": "Both Supervised and Anomaly detectors triggered positive"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "TC06_EV_04_DUAL",
+            "target": "TC06_EV_05_DUAL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "DETECTOR_CONSENSUS",
+                    "reason": "Both Supervised and Anomaly detectors triggered positive"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "TC06_EV_05_DUAL",
+            "target": "TC06_EV_06_DUAL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "DETECTOR_CONSENSUS",
+                    "reason": "Both Supervised and Anomaly detectors triggered positive"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        }
+    ],
+    "correlation_score": 24.0,
+    "detection_summary": {
+        "supervised_avg": 0.9174,
+        "anomaly_avg": 0.0328,
+        "total_dual_positive_in_test": 533,
+        "agreement_type": "Supervised Attack + Unsupervised Behavioral Outlier"
+    },
+    "mitre_mappings": [
+        {
+            "technique_id": "T1210",
+            "technique_name": "Exploitation of Remote Services",
+            "tactic": "Lateral Movement",
+            "evidence": "Consensus detection where supervised signature and anomaly outlier both flag positive.",
+            "confidence": "HIGH",
+            "source_event_ids": [
+                "TC06_EV_01_DUAL",
+                "TC06_EV_02_DUAL",
+                "TC06_EV_03_DUAL",
+                "TC06_EV_04_DUAL",
+                "TC06_EV_05_DUAL",
+                "TC06_EV_06_DUAL"
+            ]
+        }
+    ],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC06_01",
+            "type": "DUAL_ENGINE_CONSENSUS",
+            "description": "Multi-engine consensus: XGBoost flagged attack and Isolation Forest flagged behavioral anomaly.",
+            "source_event_ids": [
+                "TC06_EV_01_DUAL",
+                "TC06_EV_02_DUAL",
+                "TC06_EV_03_DUAL",
+                "TC06_EV_04_DUAL",
+                "TC06_EV_05_DUAL",
+                "TC06_EV_06_DUAL"
+            ],
+            "strength": "STRONG"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Represents highest-confidence priority tier in SOC triage queue.",
+        "Both models agree on anomalous attack status."
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "graph_source": "synthetic_incident.json",
+    "model_type": "GNN Proof-of-Concept",
+    "status": "aborted",
+    "reason": "missing_dependencies_and_insufficient_graph_size"
+}

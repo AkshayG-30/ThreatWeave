@@ -1,0 +1,17 @@
+{
+    "random_seed": 42,
+    "dataset_sample_size": 150000,
+    "split_ratios": [
+        0.7,
+        0.15,
+        0.15
+    ],
+    "training_samples_benign_only": 100825,
+    "feature_count": 41,
+    "if_parameters": {
+        "n_estimators": 200,
+        "random_state": 42
+    },
+    "threshold_strategy": "Validation F1 Optimization",
+    "selected_threshold": 0.009427489682346572
+}

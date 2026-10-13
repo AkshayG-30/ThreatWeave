@@ -1,0 +1,6 @@
+{
+    "dataset": "NF-UNSW-NB15-v2",
+    "model_type": "GRU(32) -> Dense -> Binary",
+    "status": "aborted",
+    "reason": "missing_temporal_features"
+}

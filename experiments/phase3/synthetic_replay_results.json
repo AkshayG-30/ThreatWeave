@@ -1,0 +1,28 @@
+{
+    "event_count": 9,
+    "attack_chain_count": 8,
+    "noise_count": 1,
+    "noise_isolated": true,
+    "candidate_incidents": 1,
+    "largest_incident_size": 8,
+    "reconstructed_sequence": [
+        "EV_01_RECON",
+        "EV_02_RECON",
+        "EV_03_SCAN",
+        "EV_04_EXPLOIT",
+        "EV_05_C2",
+        "EV_06_C2",
+        "EV_07_EXFIL",
+        "EV_08_LATERAL"
+    ],
+    "edge_types": {
+        "SAME_SOURCE_IP": 8,
+        "DETECTION_AGREEMENT": 4,
+        "TEMPORAL": 20,
+        "SHARED_IP_PIVOT": 8,
+        "SAME_SRC_AND_DST": 4
+    },
+    "evidence_strengths": {
+        "MEDIUM": 20
+    }
+}

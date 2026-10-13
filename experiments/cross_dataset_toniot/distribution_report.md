@@ -1,0 +1,14 @@
+# Distribution Shift Analysis
+
+| Feature | UNSW Mean | ToN Mean | UNSW Std | ToN Std | Shift Observed |
+|---|---|---|---|---|---|
+| L7_PROTO | 3.02 | 23.59 | 13.53 | 35.60 | LOW |
+| FLOW_DURATION_MILLISECONDS | 258298.03 | 7874.64 | 1021109.74 | 130496.99 | LOW |
+| L4_SRC_PORT | 32523.99 | 42802.40 | 19169.52 | 16376.99 | LOW |
+| PROTOCOL | 9.13 | 7.07 | 10.95 | 3.28 | LOW |
+| TCP_FLAGS | 19.93 | 22.02 | 11.12 | 8.45 | LOW |
+| IN_PKTS | 36.09 | 21.09 | 88.03 | 3149.40 | LOW |
+| OUT_PKTS | 45.61 | 12.62 | 116.41 | 1587.35 | LOW |
+| L4_DST_PORT | 11478.90 | 5939.43 | 18582.79 | 15415.97 | LOW |
+| IN_BYTES | 4694.61 | 1716.95 | 85958.65 | 194222.55 | LOW |
+| OUT_BYTES | 35017.90 | 3258.71 | 154667.30 | 120653.94 | LOW |

@@ -1,0 +1,90 @@
+{
+    "metrics": {
+        "total_evaluated": 17129715,
+        "total_benign": 15101685,
+        "total_attack": 2028030,
+        "accuracy": 0.5205078426582112,
+        "precision": 0.012954527344474649,
+        "recall": 0.040562516333584805,
+        "f1": 0.01963741607870435,
+        "macro_f1": 0.35114138752019214,
+        "fpr": 0.41503951380259885,
+        "benign_specificity": 0.5849604861974012,
+        "true_positives": 82262,
+        "true_negatives": 8833889,
+        "false_positives": 6267796,
+        "false_negatives": 1945768
+    },
+    "category_analysis": {
+        "SSH-Bruteforce": {
+            "support": 94979,
+            "detected": 30,
+            "recall": 0.0003158592952126259
+        },
+        "DDoS attacks-LOIC-HTTP": {
+            "support": 207078,
+            "detected": 5847,
+            "recall": 0.028235737258424362
+        },
+        "DDOS attack-HOIC": {
+            "support": 1066881,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "DoS attacks-Slowloris": {
+            "support": 9512,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "DoS attacks-Hulk": {
+            "support": 432648,
+            "detected": 192,
+            "recall": 0.0004437787762800244
+        },
+        "FTP-BruteForce": {
+            "support": 25933,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "Infilteration": {
+            "support": 115513,
+            "detected": 76184,
+            "recall": 0.6595274990693688
+        },
+        "Bot": {
+            "support": 28033,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "DoS attacks-GoldenEye": {
+            "support": 27723,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "Brute Force -Web": {
+            "support": 2143,
+            "detected": 5,
+            "recall": 0.0023331777881474567
+        },
+        "DoS attacks-SlowHTTPTest": {
+            "support": 14116,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "SQL Injection": {
+            "support": 432,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "DDOS attack-LOIC-UDP": {
+            "support": 2112,
+            "detected": 0,
+            "recall": 0.0
+        },
+        "Brute Force -XSS": {
+            "support": 927,
+            "detected": 4,
+            "recall": 0.004314994606256742
+        }
+    }
+}

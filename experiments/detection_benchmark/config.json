@@ -1,0 +1,12 @@
+{
+    "dataset": "NF-UNSW-NB15-v2",
+    "dataset_sample_size": 150000,
+    "features": 41,
+    "random_seed": 42,
+    "lgb_parameters": {
+        "n_estimators": 100,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "random_state": 42
+    }
+}

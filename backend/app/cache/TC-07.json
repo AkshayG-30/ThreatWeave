@@ -1,0 +1,119 @@
+{
+    "incident_id": "INC_TC07",
+    "scenario_id": "TC-07",
+    "execution_mode": "LIVE_INFERENCE",
+    "source_dataset": "NF-UNSW-NB15-v2",
+    "event_count": 6,
+    "events": [
+        {
+            "event_id": "TC07_EV_01_XGB_ONLY",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.11",
+            "source_port": 43398,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9984,
+            "anomaly_score": 0.004,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC07_EV_02_XGB_ONLY",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.18",
+            "source_port": 62403,
+            "destination_port": 111,
+            "protocol": "TCP",
+            "supervised_score": 0.9996,
+            "anomaly_score": -0.012,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC07_EV_03_XGB_ONLY",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.16",
+            "source_port": 51997,
+            "destination_port": 179,
+            "protocol": "TCP",
+            "supervised_score": 0.9985,
+            "anomaly_score": -0.0111,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC07_EV_04_IF_ONLY",
+            "source_ip": "59.166.0.6",
+            "destination_ip": "149.171.126.1",
+            "source_port": 33069,
+            "destination_port": 22,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.081,
+            "detection_source": "ANOMALY",
+            "timestamp": 1704294951.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC07_EV_05_IF_ONLY",
+            "source_ip": "59.166.0.9",
+            "destination_ip": "149.171.126.9",
+            "source_port": 54962,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.1684,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC07_EV_06_IF_ONLY",
+            "source_ip": "59.166.0.4",
+            "destination_ip": "149.171.126.3",
+            "source_port": 52856,
+            "destination_port": 6881,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": 0.1893,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [],
+    "correlation_score": 10.0,
+    "detection_summary": {
+        "supervised_avg": 0.4994,
+        "anomaly_avg": 0.0699,
+        "test_split_xgb_only_count": 443,
+        "test_split_if_only_count": 1442,
+        "discrepancy_explanation": "XGB-only indicates known attacks behaving with normal feature volumes; IF-only indicates unknown behavioral anomalies not in supervised training labels."
+    },
+    "mitre_mappings": [],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC07_01",
+            "type": "DETECTOR_DISCREPANCY",
+            "description": "Model divergence: events 1-3 flagged only by XGBoost; events 4-6 flagged only by Isolation Forest.",
+            "source_event_ids": [
+                "TC07_EV_01_XGB_ONLY",
+                "TC07_EV_02_XGB_ONLY",
+                "TC07_EV_03_XGB_ONLY",
+                "TC07_EV_04_IF_ONLY",
+                "TC07_EV_05_IF_ONLY",
+                "TC07_EV_06_IF_ONLY"
+            ],
+            "strength": "MEDIUM"
+        }
+    ],
+    "confidence": "MEDIUM",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Demonstrates necessity of dual-engine architecture: each model catches blindspots of the other.",
+        "Discrepant events require SOC analyst review."
+    ]
+}

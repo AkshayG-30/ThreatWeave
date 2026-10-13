@@ -1,0 +1,11 @@
+{
+    "status": "FAILED_DUE_TO_NO_TEMPORAL_DATA",
+    "Accuracy": null,
+    "Precision": null,
+    "Recall": null,
+    "F1": null,
+    "TrainingTime_s": null,
+    "InferenceTime_s": null,
+    "SequenceLength": null,
+    "NumberOfSamples": null
+}

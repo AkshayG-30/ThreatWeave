@@ -1,0 +1,124 @@
+{
+    "incident_id": "INC_TC09",
+    "scenario_id": "TC-09",
+    "execution_mode": "RECORDED_EVALUATION",
+    "source_dataset": "NF-UNSW-NB15-v2 (Zero-Shot Reconnaissance Holdout)",
+    "event_count": 5,
+    "events": [
+        {
+            "event_id": "TC09_EV_01_RECON",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.18",
+            "source_port": 62403,
+            "destination_port": 111,
+            "protocol": "TCP",
+            "supervised_score": 0.9731,
+            "anomaly_score": -0.012,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC09_EV_02_RECON",
+            "source_ip": "175.45.176.3",
+            "destination_ip": "149.171.126.14",
+            "source_port": 38358,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9731,
+            "anomaly_score": -0.0082,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC09_EV_03_RECON",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.15",
+            "source_port": 1140,
+            "destination_port": 111,
+            "protocol": "TCP",
+            "supervised_score": 0.9731,
+            "anomaly_score": -0.0182,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC09_EV_04_RECON",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.19",
+            "source_port": 54670,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9731,
+            "anomaly_score": -0.004,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC09_EV_05_RECON",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.17",
+            "source_port": 11815,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9731,
+            "anomaly_score": 0.0086,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [],
+    "correlation_score": 15.0,
+    "detection_summary": {
+        "evaluation_mode": "RECORDED_EXPERIMENT_ARTIFACT",
+        "artifact_path": "experiments/unseen_attack/results.json",
+        "holdout_family": "Reconnaissance",
+        "holdout_test_support": 29609,
+        "reconnaissance_recall": "100.0%",
+        "f1_score": "93.31%",
+        "macro_f1": "96.56%",
+        "fpr": "0.40%",
+        "training_exclusion": "Reconnaissance class completely removed from training data (0 samples seen)"
+    },
+    "mitre_mappings": [
+        {
+            "technique_id": "T1046",
+            "technique_name": "Network Service Scanning",
+            "tactic": "Discovery",
+            "evidence": "Reconnaissance probe detected with 100% recall despite training exclusion.",
+            "confidence": "HIGH",
+            "source_event_ids": [
+                "TC09_EV_01_RECON",
+                "TC09_EV_02_RECON",
+                "TC09_EV_03_RECON",
+                "TC09_EV_04_RECON",
+                "TC09_EV_05_RECON"
+            ]
+        }
+    ],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC09_01",
+            "type": "ZERO_SHOT_GENERALIZATION",
+            "description": "Evaluated against model xgb_holdout_Reconnaissance.json with zero training exposure to Reconnaissance.",
+            "source_event_ids": [
+                "TC09_EV_01_RECON",
+                "TC09_EV_02_RECON",
+                "TC09_EV_03_RECON",
+                "TC09_EV_04_RECON",
+                "TC09_EV_05_RECON"
+            ],
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Recorded experimental evaluation from benchmark artifact.",
+        "Demonstrates 100% zero-shot recall on port scanning and reconnaissance flows."
+    ]
+}

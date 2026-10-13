@@ -1,0 +1,124 @@
+{
+    "incident_id": "INC_TC08",
+    "scenario_id": "TC-08",
+    "execution_mode": "RECORDED_EVALUATION",
+    "source_dataset": "NF-UNSW-NB15-v2 (Zero-Shot Fuzzers Holdout)",
+    "event_count": 5,
+    "events": [
+        {
+            "event_id": "TC08_EV_01_FUZZER",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.16",
+            "source_port": 51997,
+            "destination_port": 179,
+            "protocol": "TCP",
+            "supervised_score": 0.9883,
+            "anomaly_score": -0.0111,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC08_EV_02_FUZZER",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.15",
+            "source_port": 52944,
+            "destination_port": 179,
+            "protocol": "TCP",
+            "supervised_score": 0.9883,
+            "anomaly_score": 0.0555,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1704294952.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC08_EV_03_FUZZER",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.12",
+            "source_port": 65464,
+            "destination_port": 179,
+            "protocol": "TCP",
+            "supervised_score": 0.9883,
+            "anomaly_score": -0.0048,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC08_EV_04_FUZZER",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.17",
+            "source_port": 54888,
+            "destination_port": 179,
+            "protocol": "TCP",
+            "supervised_score": 0.9883,
+            "anomaly_score": -0.0107,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC08_EV_05_FUZZER",
+            "source_ip": "175.45.176.3",
+            "destination_ip": "149.171.126.17",
+            "source_port": 65475,
+            "destination_port": 21,
+            "protocol": "TCP",
+            "supervised_score": 0.9883,
+            "anomaly_score": 0.0009,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [],
+    "correlation_score": 12.0,
+    "detection_summary": {
+        "evaluation_mode": "RECORDED_EXPERIMENT_ARTIFACT",
+        "artifact_path": "experiments/unseen_attack/results.json",
+        "holdout_family": "Fuzzers",
+        "holdout_test_support": 30207,
+        "fuzzers_recall": "68.64%",
+        "f1_score": "79.03%",
+        "macro_f1": "89.08%",
+        "fpr": "0.25%",
+        "training_exclusion": "Fuzzers class completely removed from training data (0 samples seen)"
+    },
+    "mitre_mappings": [
+        {
+            "technique_id": "T1046",
+            "technique_name": "Network Service Scanning",
+            "tactic": "Discovery",
+            "evidence": "Fuzzing probes triggering network protocol boundaries.",
+            "confidence": "MEDIUM",
+            "source_event_ids": [
+                "TC08_EV_01_FUZZER",
+                "TC08_EV_02_FUZZER",
+                "TC08_EV_03_FUZZER",
+                "TC08_EV_04_FUZZER",
+                "TC08_EV_05_FUZZER"
+            ]
+        }
+    ],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC08_01",
+            "type": "ZERO_SHOT_GENERALIZATION",
+            "description": "Evaluated against model xgb_holdout_Fuzzers.json with zero training exposure to Fuzzers.",
+            "source_event_ids": [
+                "TC08_EV_01_FUZZER",
+                "TC08_EV_02_FUZZER",
+                "TC08_EV_03_FUZZER",
+                "TC08_EV_04_FUZZER",
+                "TC08_EV_05_FUZZER"
+            ],
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Recorded experimental evaluation from benchmark artifact.",
+        "Demonstrates 68.64% zero-shot transfer on previously unseen attack family."
+    ]
+}

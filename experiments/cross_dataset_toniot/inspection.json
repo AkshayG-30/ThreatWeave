@@ -1,0 +1,112 @@
+{
+    "rows": 1157994,
+    "columns": 12,
+    "column_names": [
+        "L4_SRC_PORT",
+        "L4_DST_PORT",
+        "PROTOCOL",
+        "L7_PROTO",
+        "IN_BYTES",
+        "OUT_BYTES",
+        "IN_PKTS",
+        "OUT_PKTS",
+        "TCP_FLAGS",
+        "FLOW_DURATION_MILLISECONDS",
+        "Label",
+        "Attack"
+    ],
+    "dtypes": {
+        "L4_SRC_PORT": "int32",
+        "L4_DST_PORT": "int32",
+        "PROTOCOL": "int8",
+        "L7_PROTO": "float32",
+        "IN_BYTES": "int32",
+        "OUT_BYTES": "int32",
+        "IN_PKTS": "int32",
+        "OUT_PKTS": "int32",
+        "TCP_FLAGS": "int16",
+        "FLOW_DURATION_MILLISECONDS": "int32",
+        "Label": "int8",
+        "Attack": "object"
+    },
+    "missing_values": {
+        "L4_SRC_PORT": 0,
+        "L4_DST_PORT": 0,
+        "PROTOCOL": 0,
+        "L7_PROTO": 0,
+        "IN_BYTES": 0,
+        "OUT_BYTES": 0,
+        "IN_PKTS": 0,
+        "OUT_PKTS": 0,
+        "TCP_FLAGS": 0,
+        "FLOW_DURATION_MILLISECONDS": 0,
+        "Label": 0,
+        "Attack": 0
+    },
+    "duplicate_rows": 0,
+    "label_distribution": {
+        "1": 959544,
+        "0": 198450
+    },
+    "attack_distribution": {
+        "injection": 460812,
+        "Benign": 198450,
+        "ddos": 197680,
+        "password": 144792,
+        "xss": 99913,
+        "scanning": 20618,
+        "backdoor": 17243,
+        "dos": 17056,
+        "mitm": 1288,
+        "ransomware": 142
+    },
+    "categorical_uniques": {
+        "Attack": 10
+    },
+    "numeric_min_max": {
+        "L4_SRC_PORT": {
+            "min": 0,
+            "max": 65535
+        },
+        "L4_DST_PORT": {
+            "min": 0,
+            "max": 65534
+        },
+        "PROTOCOL": {
+            "min": 1,
+            "max": 58
+        },
+        "L7_PROTO": {
+            "min": 0.0,
+            "max": 251.0
+        },
+        "IN_BYTES": {
+            "min": 28,
+            "max": 79415904
+        },
+        "OUT_BYTES": {
+            "min": 0,
+            "max": 70165175
+        },
+        "IN_PKTS": {
+            "min": 1,
+            "max": 1221043
+        },
+        "OUT_PKTS": {
+            "min": 0,
+            "max": 1349068
+        },
+        "TCP_FLAGS": {
+            "min": 0,
+            "max": 219
+        },
+        "FLOW_DURATION_MILLISECONDS": {
+            "min": 0,
+            "max": 4294849
+        },
+        "Label": {
+            "min": 0,
+            "max": 1
+        }
+    }
+}

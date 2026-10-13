@@ -1,0 +1,142 @@
+[
+    {
+        "id": "TC-01",
+        "name": "Benign Traffic Baseline",
+        "description": "Validates detector specificity and evaluates against false alarm spikes on normal network flows.",
+        "source": "LIVE_INFERENCE",
+        "primary_capability": "SPECIFICITY / FPR",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "ANOMALY"
+        ]
+    },
+    {
+        "id": "TC-02",
+        "name": "Known Attack \u2014 Exploits",
+        "description": "Demonstrates high-confidence supervised XGBoost detection on real network exploit flows.",
+        "source": "LIVE_INFERENCE",
+        "primary_capability": "KNOWN ATTACK RECALL",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "GRAPH",
+            "MITRE",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-03",
+        "name": "Known Attack \u2014 Generic / DoS",
+        "description": "Tests volumetric and protocol-based attack patterns with supervised signature matching.",
+        "source": "LIVE_INFERENCE",
+        "primary_capability": "DOS / VOLUMETRIC RECALL",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "GRAPH",
+            "MITRE",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-04",
+        "name": "Isolation Forest Anomaly Example",
+        "description": "Demonstrates unsupervised behavioral outlier detection flagging abnormal statistical features.",
+        "source": "LIVE_INFERENCE",
+        "primary_capability": "BEHAVIORAL OUTLIER",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "ANOMALY",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-05",
+        "name": "Autoencoder Anomaly Example",
+        "description": "Reconstruction error anomaly detection benchmark comparing against tree-based isolation.",
+        "source": "RECORDED_EVALUATION",
+        "primary_capability": "DEEP RECONSTRUCTION ERROR",
+        "status": "DISABLED",
+        "is_executable": false,
+        "stages": []
+    },
+    {
+        "id": "TC-06",
+        "name": "Detector Agreement (Supervised + Anomaly)",
+        "description": "Consensus scenario where both supervised XGBoost and unsupervised Isolation Forest trigger positive.",
+        "source": "LIVE_INFERENCE",
+        "primary_capability": "DUAL-ENGINE AGREEMENT",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "ANOMALY",
+            "GRAPH",
+            "MITRE",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-07",
+        "name": "Detector Disagreement",
+        "description": "Edge-case scenario evaluating divergence between supervised classifier and anomaly detector.",
+        "source": "LIVE_INFERENCE",
+        "primary_capability": "DISCREPANCY RESOLUTION",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "ANOMALY",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-08",
+        "name": "Held-Out Fuzzers Evaluation",
+        "description": "Zero-shot generalization test evaluating an XGBoost model trained with the entire Fuzzers family excluded.",
+        "source": "RECORDED_EVALUATION",
+        "primary_capability": "HOLDOUT FAMILY GENERALIZATION",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-09",
+        "name": "Held-Out Reconnaissance Evaluation",
+        "description": "Zero-shot generalization test evaluating an XGBoost model trained with Reconnaissance completely held out.",
+        "source": "RECORDED_EVALUATION",
+        "primary_capability": "HOLDOUT FAMILY GENERALIZATION",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "MITRE",
+            "AI"
+        ]
+    },
+    {
+        "id": "TC-10",
+        "name": "Controlled Multi-Stage APT Replay",
+        "description": "Controlled multi-stage incident demonstrating correlation, graph reconstruction, MITRE mapping and evidence-grounded explanation.",
+        "source": "CONTROLLED_REPLAY",
+        "primary_capability": "END_TO_END",
+        "status": "VERIFIED",
+        "is_executable": true,
+        "stages": [
+            "DETECTION",
+            "ANOMALY",
+            "CORRELATION",
+            "GRAPH",
+            "MITRE",
+            "AI"
+        ]
+    }
+]

@@ -1,0 +1,19 @@
+{
+    "holdout_family": "Fuzzers",
+    "train_categories": [
+        "Benign",
+        "Exploits",
+        "Generic",
+        "Reconnaissance",
+        "Backdoor",
+        "DoS",
+        "Analysis",
+        "Shellcode",
+        "Worms"
+    ],
+    "test_categories": [
+        "Benign",
+        "Fuzzers"
+    ],
+    "intersection": []
+}

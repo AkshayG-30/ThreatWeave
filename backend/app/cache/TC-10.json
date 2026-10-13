@@ -1,0 +1,544 @@
+{
+    "incident_id": "INC_1",
+    "event_count": 8,
+    "events": [
+        {
+            "event_id": "EV_01_RECON",
+            "source_ip": "10.0.0.5",
+            "destination_ip": "192.168.1.10",
+            "source_port": 1234,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.1,
+            "anomaly_score": 0.8,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_02_RECON",
+            "source_ip": "10.0.0.5",
+            "destination_ip": "192.168.1.11",
+            "source_port": 1235,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.1,
+            "anomaly_score": 0.8,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000005.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_03_SCAN",
+            "source_ip": "10.0.0.5",
+            "destination_ip": "192.168.1.12",
+            "source_port": 1236,
+            "destination_port": 445,
+            "protocol": "TCP",
+            "supervised_score": 0.9,
+            "anomaly_score": 0.9,
+            "detection_source": "BOTH",
+            "timestamp": 1700000010.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_04_EXPLOIT",
+            "source_ip": "10.0.0.5",
+            "destination_ip": "192.168.1.12",
+            "source_port": 1237,
+            "destination_port": 445,
+            "protocol": "TCP",
+            "supervised_score": 0.99,
+            "anomaly_score": 0.1,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000015.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_05_C2",
+            "source_ip": "192.168.1.12",
+            "destination_ip": "185.15.2.1",
+            "source_port": 4444,
+            "destination_port": 8080,
+            "protocol": "TCP",
+            "supervised_score": 0.1,
+            "anomaly_score": 0.85,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000020.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_06_C2",
+            "source_ip": "192.168.1.12",
+            "destination_ip": "185.15.2.1",
+            "source_port": 4445,
+            "destination_port": 8080,
+            "protocol": "TCP",
+            "supervised_score": 0.1,
+            "anomaly_score": 0.85,
+            "detection_source": "ANOMALY",
+            "timestamp": 1700000025.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_07_EXFIL",
+            "source_ip": "192.168.1.12",
+            "destination_ip": "185.15.2.1",
+            "source_port": 4446,
+            "destination_port": 8080,
+            "protocol": "TCP",
+            "supervised_score": 0.9,
+            "anomaly_score": 0.9,
+            "detection_source": "BOTH",
+            "timestamp": 1700000028.0,
+            "timestamp_source": "DEMO_REPLAY"
+        },
+        {
+            "event_id": "EV_08_LATERAL",
+            "source_ip": "192.168.1.12",
+            "destination_ip": "192.168.1.15",
+            "source_port": 5000,
+            "destination_port": 445,
+            "protocol": "TCP",
+            "supervised_score": 0.9,
+            "anomaly_score": 0.2,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000035.0,
+            "timestamp_source": "DEMO_REPLAY"
+        }
+    ],
+    "edges": [
+        {
+            "source": "EV_01_RECON",
+            "target": "EV_04_EXPLOIT",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_01_RECON",
+            "target": "EV_02_RECON",
+            "weight": 1.2000000000000002,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "DETECTION_AGREEMENT",
+                    "reason": "Events share same detection mechanism"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_01_RECON",
+            "target": "EV_03_SCAN",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_02_RECON",
+            "target": "EV_04_EXPLOIT",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_02_RECON",
+            "target": "EV_03_SCAN",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_03_SCAN",
+            "target": "EV_06_C2",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_03_SCAN",
+            "target": "EV_07_EXFIL",
+            "weight": 1.2000000000000002,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "DETECTION_AGREEMENT",
+                    "reason": "Events share same detection mechanism"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_03_SCAN",
+            "target": "EV_08_LATERAL",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_03_SCAN",
+            "target": "EV_05_C2",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_03_SCAN",
+            "target": "EV_04_EXPLOIT",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SRC_AND_DST",
+                    "reason": "Events share Src->Dst 10.0.0.5->192.168.1.12"
+                },
+                {
+                    "edge_type": "SAME_SRC_DST_PORT",
+                    "reason": "Events share destination port"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "EV_04_EXPLOIT",
+            "target": "EV_06_C2",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_04_EXPLOIT",
+            "target": "EV_08_LATERAL",
+            "weight": 1.2000000000000002,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "DETECTION_AGREEMENT",
+                    "reason": "Events share same detection mechanism"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_04_EXPLOIT",
+            "target": "EV_07_EXFIL",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_04_EXPLOIT",
+            "target": "EV_05_C2",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SHARED_IP_PIVOT",
+                    "reason": "Pivot IP 192.168.1.12"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_05_C2",
+            "target": "EV_07_EXFIL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SRC_AND_DST",
+                    "reason": "Events share Src->Dst 192.168.1.12->185.15.2.1"
+                },
+                {
+                    "edge_type": "SAME_SRC_DST_PORT",
+                    "reason": "Events share destination port"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "EV_05_C2",
+            "target": "EV_06_C2",
+            "weight": 1.6999999999999997,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SRC_AND_DST",
+                    "reason": "Events share Src->Dst 192.168.1.12->185.15.2.1"
+                },
+                {
+                    "edge_type": "SAME_SRC_DST_PORT",
+                    "reason": "Events share destination port"
+                },
+                {
+                    "edge_type": "DETECTION_AGREEMENT",
+                    "reason": "Events share same detection mechanism"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "EV_05_C2",
+            "target": "EV_08_LATERAL",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_06_C2",
+            "target": "EV_07_EXFIL",
+            "weight": 1.5,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SRC_AND_DST",
+                    "reason": "Events share Src->Dst 192.168.1.12->185.15.2.1"
+                },
+                {
+                    "edge_type": "SAME_SRC_DST_PORT",
+                    "reason": "Events share destination port"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "STRONG"
+        },
+        {
+            "source": "EV_06_C2",
+            "target": "EV_08_LATERAL",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "EV_07_EXFIL",
+            "target": "EV_08_LATERAL",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "SAME_SOURCE_IP",
+                    "reason": "Events share source IP only (WEAK)"
+                },
+                {
+                    "edge_type": "TEMPORAL",
+                    "reason": "Events within 30.0s window"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        }
+    ],
+    "correlation_score": 22.8,
+    "detection_summary": {
+        "supervised_avg": 0.5,
+        "anomaly_avg": 0.5
+    },
+    "mitre_mappings": [
+        {
+            "technique_id": "T1046",
+            "technique_name": "Network Service Scanning",
+            "tactic": "Discovery",
+            "evidence": "Multiple events from the same source indicating rapid scanning or reconnaissance behavior within a temporal window.",
+            "confidence": "HIGH",
+            "source_event_ids": [
+                "EV_01_RECON",
+                "EV_02_RECON",
+                "EV_03_SCAN"
+            ]
+        },
+        {
+            "technique_id": "T1210",
+            "technique_name": "Exploitation of Remote Services",
+            "tactic": "Lateral Movement",
+            "evidence": "Network flow flagged strongly by supervised model as exploitation behavior.",
+            "confidence": "MEDIUM",
+            "source_event_ids": [
+                "EV_04_EXPLOIT"
+            ]
+        },
+        {
+            "technique_id": "T1071",
+            "technique_name": "Application Layer Protocol",
+            "tactic": "Command and Control",
+            "evidence": "Anomalous outbound connections to an external pivot IP following exploitation.",
+            "confidence": "HIGH",
+            "source_event_ids": [
+                "EV_05_C2",
+                "EV_06_C2"
+            ]
+        },
+        {
+            "technique_id": "T1041",
+            "technique_name": "Exfiltration Over C2 Channel",
+            "tactic": "Exfiltration",
+            "evidence": "Anomalous data transfer following established C2 communication.",
+            "confidence": "MEDIUM",
+            "source_event_ids": [
+                "EV_07_EXFIL"
+            ]
+        }
+    ],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_01",
+            "type": "CORRELATION",
+            "description": "Events share a strong multi-signal relationship (e.g. temporal proximity + shared entity).",
+            "source_event_ids": [],
+            "source_edge_ids": [],
+            "strength": "STRONG"
+        },
+        {
+            "evidence_id": "EVID_02",
+            "type": "DETECTION",
+            "description": "Events flagged by both Supervised and Anomaly detectors.",
+            "source_event_ids": [
+                "EV_03_SCAN",
+                "EV_07_EXFIL"
+            ],
+            "source_edge_ids": null,
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "DEMO_REPLAY",
+    "limitations": [
+        "Timestamps are synthetic replay only",
+        "No deep payload parsing"
+    ],
+    "scenario_id": "TC-10",
+    "execution_mode": "CONTROLLED_REPLAY",
+    "source_dataset": "Controlled Multi-Stage Benchmark"
+}

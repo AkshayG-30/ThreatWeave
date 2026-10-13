@@ -1,0 +1,34 @@
+{
+    "Fuzzers": {
+        "Holdout_Family": "Fuzzers",
+        "Train_Size": 119793,
+        "Test_Size": 30207,
+        "Support": 1400,
+        "True_Positives": 961,
+        "True_Negatives": 28736,
+        "False_Positives": 71,
+        "False_Negatives": 439,
+        "Recall": 0.6864285714285714,
+        "Precision": 0.9312015503875969,
+        "F1": 0.790296052631579,
+        "Macro_F1": 0.8907501097209842,
+        "FPR": 0.002464678723921269,
+        "Benign_Specificity": 0.9975353212760787
+    },
+    "Reconnaissance": {
+        "Holdout_Family": "Reconnaissance",
+        "Train_Size": 120391,
+        "Test_Size": 29609,
+        "Support": 802,
+        "True_Positives": 802,
+        "True_Negatives": 28692,
+        "False_Positives": 115,
+        "False_Negatives": 0,
+        "Recall": 1.0,
+        "Precision": 0.8745910577971646,
+        "F1": 0.9331006399069226,
+        "Macro_F1": 0.9655503025618545,
+        "FPR": 0.003992085257055577,
+        "Benign_Specificity": 0.9960079147429445
+    }
+}

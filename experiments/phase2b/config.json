@@ -1,0 +1,29 @@
+{
+    "random_seed": 42,
+    "dataset_sample_size": 150000,
+    "split_ratios": [
+        0.7,
+        0.15,
+        0.15
+    ],
+    "feature_count": 41,
+    "excluded_columns": [
+        "IPV4_SRC_ADDR",
+        "IPV4_DST_ADDR",
+        "Label",
+        "Attack"
+    ],
+    "rf_parameters": {
+        "n_estimators": 100,
+        "class_weight": "balanced",
+        "random_state": 42
+    },
+    "xgb_parameters": {
+        "n_estimators": 100,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "scale_pos_weight": 24.149700598802394,
+        "tree_method": "hist"
+    },
+    "threshold": 0.5
+}

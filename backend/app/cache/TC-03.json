@@ -1,0 +1,208 @@
+{
+    "incident_id": "INC_TC03",
+    "scenario_id": "TC-03",
+    "execution_mode": "LIVE_INFERENCE",
+    "source_dataset": "NF-UNSW-NB15-v2",
+    "event_count": 6,
+    "events": [
+        {
+            "event_id": "TC03_EV_01_DOS",
+            "source_ip": "175.45.176.2",
+            "destination_ip": "149.171.126.14",
+            "source_port": 53187,
+            "destination_port": 25,
+            "protocol": "TCP",
+            "supervised_score": 0.9959,
+            "anomaly_score": 0.0113,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC03_EV_02_DOS",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.17",
+            "source_port": 0,
+            "destination_port": 0,
+            "protocol": "IP",
+            "supervised_score": 0.9999,
+            "anomaly_score": 0.017,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC03_EV_03_DOS",
+            "source_ip": "175.45.176.0",
+            "destination_ip": "149.171.126.18",
+            "source_port": 22009,
+            "destination_port": 5060,
+            "protocol": "UDP",
+            "supervised_score": 0.9979,
+            "anomaly_score": 0.0416,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC03_EV_04_GENERIC",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.18",
+            "source_port": 1043,
+            "destination_port": 53,
+            "protocol": "UDP",
+            "supervised_score": 0.9999,
+            "anomaly_score": 0.0344,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC03_EV_05_GENERIC",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.15",
+            "source_port": 61277,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.9992,
+            "anomaly_score": -0.0057,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC03_EV_06_GENERIC",
+            "source_ip": "175.45.176.1",
+            "destination_ip": "149.171.126.12",
+            "source_port": 54356,
+            "destination_port": 25,
+            "protocol": "TCP",
+            "supervised_score": 0.997,
+            "anomaly_score": -0.0058,
+            "detection_source": "SUPERVISED",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [
+        {
+            "source": "TC03_EV_01_DOS",
+            "target": "TC03_EV_02_DOS",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "VOLUMETRIC_CORRELATION",
+                    "reason": "High-rate repetitive volumetric flow pattern"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC03_EV_02_DOS",
+            "target": "TC03_EV_03_DOS",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "VOLUMETRIC_CORRELATION",
+                    "reason": "High-rate repetitive volumetric flow pattern"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC03_EV_03_DOS",
+            "target": "TC03_EV_04_GENERIC",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "VOLUMETRIC_CORRELATION",
+                    "reason": "High-rate repetitive volumetric flow pattern"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC03_EV_04_GENERIC",
+            "target": "TC03_EV_05_GENERIC",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "VOLUMETRIC_CORRELATION",
+                    "reason": "High-rate repetitive volumetric flow pattern"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        },
+        {
+            "source": "TC03_EV_05_GENERIC",
+            "target": "TC03_EV_06_GENERIC",
+            "weight": 1.0,
+            "reasons": [
+                {
+                    "edge_type": "VOLUMETRIC_CORRELATION",
+                    "reason": "High-rate repetitive volumetric flow pattern"
+                }
+            ],
+            "evidence_strength": "MEDIUM"
+        }
+    ],
+    "correlation_score": 18.2,
+    "detection_summary": {
+        "supervised_avg": 0.9983,
+        "anomaly_avg": 0.0155,
+        "attack_families": [
+            "DoS",
+            "Generic"
+        ],
+        "dos_recall": "100.0% (54/54)",
+        "generic_recall": "100.0% (156/156)"
+    },
+    "mitre_mappings": [
+        {
+            "technique_id": "T1498",
+            "technique_name": "Network Denial of Service",
+            "tactic": "Impact",
+            "evidence": "High-volume repetitive flow patterns matching denial-of-service signatures.",
+            "confidence": "HIGH",
+            "source_event_ids": [
+                "TC03_EV_01_DOS",
+                "TC03_EV_02_DOS",
+                "TC03_EV_03_DOS"
+            ]
+        },
+        {
+            "technique_id": "T1499",
+            "technique_name": "Endpoint Denial of Service",
+            "tactic": "Impact",
+            "evidence": "Volumetric and generic attack flows exhausting target service queues.",
+            "confidence": "MEDIUM",
+            "source_event_ids": [
+                "TC03_EV_04_GENERIC",
+                "TC03_EV_05_GENERIC",
+                "TC03_EV_06_GENERIC"
+            ]
+        }
+    ],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC03_01",
+            "type": "VOLUMETRIC_DETECTION",
+            "description": "Supervised detector identified volumetric DoS and generic flood traffic.",
+            "source_event_ids": [
+                "TC03_EV_01_DOS",
+                "TC03_EV_02_DOS",
+                "TC03_EV_03_DOS",
+                "TC03_EV_04_GENERIC",
+                "TC03_EV_05_GENERIC",
+                "TC03_EV_06_GENERIC"
+            ],
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Evaluated on NetFlow rate statistics.",
+        "Lacks deep packet inspection for payload-specific denial of service triggers."
+    ]
+}

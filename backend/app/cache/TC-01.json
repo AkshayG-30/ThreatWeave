@@ -1,0 +1,119 @@
+{
+    "incident_id": "INC_TC01",
+    "scenario_id": "TC-01",
+    "execution_mode": "LIVE_INFERENCE",
+    "source_dataset": "NF-UNSW-NB15-v2 (Untouched Test Split)",
+    "event_count": 6,
+    "events": [
+        {
+            "event_id": "TC01_EV_01_BENIGN",
+            "source_ip": "59.166.0.7",
+            "destination_ip": "149.171.126.5",
+            "source_port": 36295,
+            "destination_port": 80,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": -0.1255,
+            "detection_source": "NONE",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC01_EV_02_BENIGN",
+            "source_ip": "59.166.0.6",
+            "destination_ip": "149.171.126.7",
+            "source_port": 18996,
+            "destination_port": 21,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": -0.0986,
+            "detection_source": "NONE",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC01_EV_03_BENIGN",
+            "source_ip": "59.166.0.5",
+            "destination_ip": "149.171.126.8",
+            "source_port": 45887,
+            "destination_port": 6157,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": -0.117,
+            "detection_source": "NONE",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC01_EV_04_BENIGN",
+            "source_ip": "59.166.0.4",
+            "destination_ip": "149.171.126.7",
+            "source_port": 36039,
+            "destination_port": 6881,
+            "protocol": "TCP",
+            "supervised_score": 0.0,
+            "anomaly_score": -0.0282,
+            "detection_source": "NONE",
+            "timestamp": 1704294951.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC01_EV_05_BENIGN",
+            "source_ip": "59.166.0.5",
+            "destination_ip": "149.171.126.0",
+            "source_port": 21113,
+            "destination_port": 53,
+            "protocol": "UDP",
+            "supervised_score": 0.0001,
+            "anomaly_score": -0.0636,
+            "detection_source": "NONE",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        },
+        {
+            "event_id": "TC01_EV_06_BENIGN",
+            "source_ip": "59.166.0.2",
+            "destination_ip": "149.171.126.8",
+            "source_port": 16489,
+            "destination_port": 53,
+            "protocol": "UDP",
+            "supervised_score": 0.0001,
+            "anomaly_score": -0.0698,
+            "detection_source": "NONE",
+            "timestamp": 1700000000.0,
+            "timestamp_source": "NETFLOW_TEST_SPLIT"
+        }
+    ],
+    "edges": [],
+    "correlation_score": 0.0,
+    "detection_summary": {
+        "supervised_avg": 0.0,
+        "anomaly_avg": -0.0838,
+        "total_benign_flows": 6,
+        "total_alert_count": 0
+    },
+    "mitre_mappings": [],
+    "evidence_items": [
+        {
+            "evidence_id": "EVID_TC01_01",
+            "type": "BASELINE_VERIFICATION",
+            "description": "Zero detections across both Supervised XGBoost and Anomaly Isolation Forest on verified normal network flows.",
+            "source_event_ids": [
+                "TC01_EV_01_BENIGN",
+                "TC01_EV_02_BENIGN",
+                "TC01_EV_03_BENIGN",
+                "TC01_EV_04_BENIGN",
+                "TC01_EV_05_BENIGN",
+                "TC01_EV_06_BENIGN"
+            ],
+            "strength": "HIGH"
+        }
+    ],
+    "confidence": "HIGH",
+    "timestamp_source": "NETFLOW_TEST_SPLIT",
+    "limitations": [
+        "Normal background baseline traffic.",
+        "No malicious indicators or attack relationships present.",
+        "Attack graph and MITRE mappings intentionally empty."
+    ]
+}
